@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.ed1ca6a3.js",
-    "index.html": "/index.html",
-    "main.ed1ca6a3.js.map": "/static/js/main.ed1ca6a3.js.map"
+    "main.js": "/tasks-form-material-ui-react-hook/static/js/main.ed1ca6a3.js",
+    "index.html": "/tasks-form-material-ui-react-hook/index.html",
+    "main.ed1ca6a3.js.map": "/tasks-form-material-ui-react-hook/static/js/main.ed1ca6a3.js.map"
   },
   "entrypoints": [
     "static/js/main.ed1ca6a3.js"
