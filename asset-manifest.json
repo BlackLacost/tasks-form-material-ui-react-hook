@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/tasks-form-material-ui-react-hook/static/js/main.fd8798da.js",
+    "main.js": "/tasks-form-material-ui-react-hook/static/js/main.c2f294f6.js",
     "index.html": "/tasks-form-material-ui-react-hook/index.html",
-    "main.fd8798da.js.map": "/tasks-form-material-ui-react-hook/static/js/main.fd8798da.js.map"
+    "main.c2f294f6.js.map": "/tasks-form-material-ui-react-hook/static/js/main.c2f294f6.js.map"
   },
   "entrypoints": [
-    "static/js/main.fd8798da.js"
+    "static/js/main.c2f294f6.js"
   ]
 }
