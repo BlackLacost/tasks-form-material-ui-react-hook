@@ -1,6 +1,9 @@
+import { DevTool } from '@hookform/devtools'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { Button, createTheme, Paper, Stack, ThemeProvider } from '@mui/material'
 import { Container, styled } from '@mui/system'
 import { FormProvider, useForm } from 'react-hook-form'
+import * as yup from 'yup'
 import { FormInput } from './components/FormInput'
 import { FormRadio } from './components/FormRadio'
 
@@ -43,13 +46,19 @@ const Form = styled('form')({
   gap: 15,
 })
 
+const schema = yup.object({
+  firstName: yup.string().min(4).max(12).required(),
+  role: yup.mixed().oneOf(['USER', 'ADMIN']),
+})
+
 export const App = () => {
   const methods = useForm({
     defaultValues: { firstName: '', role: 'USER' },
+    resolver: yupResolver(schema),
   })
   const onSubmit = (data) => console.log(data)
 
-  const { reset, handleSubmit } = methods
+  const { reset, handleSubmit, control } = methods
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -64,7 +73,7 @@ export const App = () => {
         >
           <Paper sx={{ padding: 4 }}>
             <FormProvider {...methods}>
-              <Form onSubmit={handleSubmit(onSubmit)}>
+              <Form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <FormInput name="firstName" label="Имя" />
                 <FormRadio name="role" label="Роль" options={roles} />
                 <Stack direction="row" spacing={2} justifyContent="end">
@@ -74,6 +83,7 @@ export const App = () => {
                   </Button>
                 </Stack>
               </Form>
+              <DevTool control={control} />
             </FormProvider>
           </Paper>
         </Container>

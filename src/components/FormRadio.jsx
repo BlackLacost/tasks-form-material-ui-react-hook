@@ -1,6 +1,7 @@
 import {
   FormControl,
   FormControlLabel,
+  FormHelperText,
   FormLabel,
   Radio,
   RadioGroup,
@@ -11,7 +12,7 @@ export const FormRadio = ({ name, label, options, ...props }) => {
   return (
     <Controller
       name={name}
-      render={({ field: { value, onChange } }) => (
+      render={({ field: { value, onChange }, fieldState: { error } }) => (
         <FormControl component="fieldset">
           <FormLabel component="legend">{label}</FormLabel>
           <RadioGroup value={value} onChange={onChange}>
@@ -24,6 +25,9 @@ export const FormRadio = ({ name, label, options, ...props }) => {
               />
             ))}
           </RadioGroup>
+          <FormHelperText error={Boolean(error)}>
+            {error?.message}
+          </FormHelperText>
         </FormControl>
       )}
     />
